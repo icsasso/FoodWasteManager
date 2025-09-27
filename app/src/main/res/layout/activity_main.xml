@@ -50,18 +50,18 @@
 
     <Button
         android:id="@+id/addFoodButton"
-        android:layout_width="190dp"
+        android:layout_width="290dp"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:text="Add Food Here"
         android:backgroundTint="#ffe194"
+        android:fontFamily="sans-serif-medium"
+        android:text="Add/Edit Food List Here"
         android:textColor="#ba5a87"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/button3"
