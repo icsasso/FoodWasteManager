@@ -1,7 +1,9 @@
 package com.example.foodwastemanager.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,8 +19,6 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mealAdapter: MealAdapter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         setupRecyclerView()
+        setupButton()
         fetchMeals()
     }
 
@@ -39,13 +40,21 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
+    private fun setupButton() {
+        val viewListButton = findViewById<Button>(R.id.button3)
+        viewListButton.setOnClickListener {
+            val intent = Intent(this, RecipeActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun fetchMeals() {
         RetrofitClient.instance.searchMeals("")
             .enqueue(object : Callback<MealResponse> {
                 override fun onResponse(call: Call<MealResponse>, response: Response<MealResponse>) {
                     val meals = response.body()?.meals
                     if (!meals.isNullOrEmpty()) {
-                        mealAdapter = MealAdapter(meals)
+                        val mealAdapter = MealAdapter(meals)
                         findViewById<RecyclerView>(R.id.mealsRecyclerView).adapter = mealAdapter
                         meals.forEach {
                             Log.d("MealAPI", "Meal: ${it.strMeal}")
