@@ -30,6 +30,14 @@
         app:layout_constraintStart_toStartOf="@+id/foodCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/foodCheckBox" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/foodExpiration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/foodCheckBox"
+        app:srcCompat="@drawable/warning" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
