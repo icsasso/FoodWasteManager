@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         setupRecyclerView()
         setupButton()
-        fetchMeals()
     }
 
     private fun setupRecyclerView() {
@@ -48,25 +47,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun fetchMeals() {
-        RetrofitClient.instance.searchMeals("")
-            .enqueue(object : Callback<MealResponse> {
-                override fun onResponse(call: Call<MealResponse>, response: Response<MealResponse>) {
-                    val meals = response.body()?.meals
-                    if (!meals.isNullOrEmpty()) {
-                        val mealAdapter = MealAdapter(meals)
-                        findViewById<RecyclerView>(R.id.mealsRecyclerView).adapter = mealAdapter
-                        meals.forEach {
-                            Log.d("MealAPI", "Meal: ${it.strMeal}")
-                        }
-                    } else {
-                        Log.d("MealAPI", "No meals found")
-                    }
                 }
 
-                override fun onFailure(call: Call<MealResponse>, t: Throwable) {
-                    Log.e("MealAPI", "Error: ${t.localizedMessage ?: "Unknown error"}")
-                }
-            })
-    }
-}
+
