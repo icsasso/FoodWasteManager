@@ -1,4 +1,5 @@
 package com.example.foodwastemanager.model
 
-class MealResponse {
-}
+data class MealResponse (
+    val meals: List<Meal> ?
+)
