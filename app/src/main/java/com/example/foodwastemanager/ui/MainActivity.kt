@@ -30,13 +30,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        setupRecyclerView()
         setupButton()
-    }
-
-    private fun setupRecyclerView() {
-        val recyclerView = findViewById<RecyclerView>(R.id.mealsRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     private fun setupButton() {
