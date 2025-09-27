@@ -19,7 +19,7 @@ class ViewListActivity : AppCompatActivity() {
         setContentView(R.layout.view_list)
 
         recyclerView = findViewById(R.id.recipeRecyclerView)
-        recipeButton = findViewById(R.id.button)
+        recipeButton = findViewById(R.id.viewRecipeSuggestionsButton)
 
         // Initially disable recipe button
         recipeButton.isEnabled = false
