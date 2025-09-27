@@ -8,8 +8,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.foodwastemanager.R
 import com.example.foodwastemanager.model.MealResponse
 import com.example.foodwastemanager.network.RetrofitClient
@@ -34,13 +32,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupButton() {
+        // Add/Edit Food List button
+        val addFoodButton = findViewById<Button>(R.id.addFoodButton)
+        addFoodButton.setOnClickListener {
+            val intent = Intent(this, EditFoodActivity::class.java)
+            startActivity(intent)
+        }
+
+        // View Food List button
         val viewListButton = findViewById<Button>(R.id.button3)
         viewListButton.setOnClickListener {
-            val intent = Intent(this, RecipeActivity::class.java)
+            val intent = Intent(this, ViewListActivity::class.java)
             startActivity(intent)
         }
     }
 
-                }
+}
 
 
