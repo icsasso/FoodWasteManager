@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/listTitle" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/viewRecipeSuggestionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#ffe194"
