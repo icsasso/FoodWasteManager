@@ -8,8 +8,8 @@
     android:background="#FFF9F0">
 
     <!-- Title -->
-    <TextView
-        android:id="@+id/foodTitle"
+    <CheckBox
+        android:id="@+id/foodCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="food item"
@@ -22,22 +22,13 @@
         android:id="@+id/foodExpiration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="-8dp"
         android:text="expiration date"
         android:textColor="#ab1d79"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/foodTitle"
-        app:layout_constraintTop_toBottomOf="@+id/foodTitle" />
-
-    <ImageButton
-        android:id="@+id/trashButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/foodExpiration"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/foodTitle"
-        app:srcCompat="@drawable/trashbin" />
+        app:layout_constraintStart_toStartOf="@+id/foodCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/foodCheckBox" />
 
 
 
