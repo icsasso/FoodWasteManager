@@ -32,6 +32,15 @@
             android:textColor="#333"
             android:layout_marginTop="8dp"/>
 
+        <TextView
+            android:id="@+id/recipeCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:textColor="#666"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"/>
+
         <!-- Ingredients used -->
         <TextView
             android:id="@+id/recipeIngredients"
