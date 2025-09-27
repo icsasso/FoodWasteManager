@@ -5,15 +5,68 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d8f0e2"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
+        android:text="Food Waste Manager"
+        android:textColor="#ab1d79"
+
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/veggiesImage" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="359dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="36dp"
+        android:text="Combat Food Waste by tracking when your food will expire!"
+
+        android:textColor="#138d77"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <ImageView
+        android:id="@+id/veggiesImage"
+        android:layout_width="413dp"
+        android:layout_height="270dp"
+        android:layout_marginStart="-20dp"
+        android:layout_marginTop="-8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/veggies" />
+
+    <Button
+        android:id="@+id/addFoodButton"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:text="Add Food here"
+        android:backgroundTint="#ffe194"
+        android:textColor="#ba5a87"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:text="View Food List"
+        android:backgroundTint="#ffe194"
+        android:textColor="#ba5a87"
+        app:layout_constraintEnd_toEndOf="@+id/addFoodButton"
+        app:layout_constraintStart_toStartOf="@+id/addFoodButton"
+        app:layout_constraintTop_toBottomOf="@+id/addFoodButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
