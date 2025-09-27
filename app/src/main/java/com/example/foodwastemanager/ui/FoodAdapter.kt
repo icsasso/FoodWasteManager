@@ -15,7 +15,7 @@ class FoodAdapter(
     inner class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.foodTitle)
         val expiration: TextView = itemView.findViewById(R.id.foodExpiration)
-        val deleteButton: ImageButton = itemView.findViewById(R.id.imageButton2)
+        val deleteButton: ImageButton = itemView.findViewById(R.id.trashButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
