@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
@@ -8,64 +9,41 @@
 
     <!-- Title -->
     <TextView
-        android:id="@+id/addFoodTitle"
+        android:id="@+id/foodTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Food Item"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#138d77"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="food item"
+        android:textColor="#ab1d79"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/foodExpiration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="expiration date"
+        android:textColor="#ab1d79"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/foodTitle"
+        app:layout_constraintTop_toBottomOf="@+id/foodTitle" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/foodExpiration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/foodTitle"
+        app:srcCompat="@drawable/trashbin" />
 
     <!-- Food Name Input -->
 
     <!-- Expiration Date Input -->
 
     <!-- Submit Button -->
-
-    <EditText
-        android:id="@+id/foodNameInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="396dp"
-        android:background="@android:drawable/edit_text"
-        android:hint="Enter food name"
-        android:padding="12dp"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addFoodTitle" />
-
-    <EditText
-        android:id="@+id/expirationDateInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="@android:drawable/edit_text"
-        android:hint="Enter expiration date (MM/DD/YYYY)"
-        android:inputType="date"
-        android:padding="12dp"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/foodNameInput" />
-
-    <Button
-        android:id="@+id/saveFoodButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#ffe194"
-        android:text="Save Food"
-        android:textColor="#ba5a87"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expirationDateInput" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
