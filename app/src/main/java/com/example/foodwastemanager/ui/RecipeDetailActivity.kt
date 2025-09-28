@@ -1,6 +1,8 @@
 package com.example.foodwastemanager.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -40,6 +42,14 @@ class RecipeDetailActivity : AppCompatActivity() {
         }
 
         fetchMealDetails(mealId)
+
+        val returnHomeButton = findViewById<ImageButton>(R.id.returnToSuggestionsButton)
+        returnHomeButton.setOnClickListener {
+            val intent = Intent(this, RecipeRecommendationsActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun fetchMealDetails(mealId: String) {
