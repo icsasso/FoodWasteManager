@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 // In your network package
 object BackendClient {
-    private const val BASE_URL = "https://monica-decayable-archiepiscopally.ngrok-free.dev/"  // For emulator
+    private const val BASE_URL = "https://monica-decayable-archiepiscopally.ngrok-free.dev/"  // ngrok
 
     val instance: BackendApiService by lazy {
         Retrofit.Builder()
