@@ -19,7 +19,9 @@ class RecipeRecommendationsAdapter(private val recipes: List<Meal>) :
         val recipeImage: ImageView = itemView.findViewById(R.id.recipeImage)
         val recipeName: TextView = itemView.findViewById(R.id.recipeName)
         val recipeIngredients: TextView = itemView.findViewById(R.id.recipeIngredients)
+        val recipeCategory: TextView = itemView.findViewById(R.id.recipeCategory)
         val viewRecipeButton: Button = itemView.findViewById(R.id.viewRecipeButton)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,7 +34,7 @@ class RecipeRecommendationsAdapter(private val recipes: List<Meal>) :
         val recipe = recipes[position]
 
         holder.recipeName.text = recipe.strMeal ?: "Unknown Recipe"
-        holder.recipeIngredients.text = recipe.strCategory ?: "No Category"
+        holder.recipeIngredients.text = recipe.strCategory ?: ""
 
         // Load recipe image using Glide
         Glide.with(holder.itemView.context)
