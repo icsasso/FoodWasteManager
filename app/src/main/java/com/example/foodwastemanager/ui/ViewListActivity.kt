@@ -1,6 +1,7 @@
 package com.example.foodwastemanager.ui
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodwastemanager.R
 import com.example.foodwastemanager.network.BackendClient
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -51,6 +53,7 @@ class ViewListActivity : AppCompatActivity() {
 
     private fun fetchFoodFromDatabase() {
         BackendClient.instance.getItems().enqueue(object : Callback<List<Map<String, Any>>> {
+            @RequiresApi(Build.VERSION_CODES.O)
             override fun onResponse(
                 call: Call<List<Map<String, Any>>>,
                 response: Response<List<Map<String, Any>>>
