@@ -76,6 +76,14 @@ class SelectableFoodAdapter(
         notifyDataSetChanged()
     }
 
+    fun getSelectedItem(): FoodItem? {
+        return if (selectedPosition != RecyclerView.NO_POSITION) {
+            foodList[selectedPosition]
+        } else {
+            null
+        }
+    }
+
 
 
 }

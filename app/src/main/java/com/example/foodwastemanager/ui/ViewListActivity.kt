@@ -48,10 +48,15 @@ class ViewListActivity : AppCompatActivity() {
 
         recipeButton.setOnClickListener {
             if (recipeButton.isEnabled) {
-                val intent = Intent(this, RecipeRecommendationsActivity::class.java)
-                startActivity(intent)
+                val selectedFood = adapter.getSelectedItem()
+                if (selectedFood != null) {
+                    val intent = Intent(this, RecipeRecommendationsActivity::class.java)
+                    intent.putExtra("ingredient", selectedFood.name)
+                    startActivity(intent)
+                }
             }
         }
+
         val returnHomeButton = findViewById<ImageButton>(R.id.returnHomeButton)
         returnHomeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
