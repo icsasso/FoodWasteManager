@@ -24,24 +24,32 @@ class RecipeRecommendationsActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Load recipes into RecyclerView
-        fetchRecipes(recyclerView)
+        fetchRecipes(recyclerView, "milk")
+        fetchRecipes(recyclerView, "cheese")
+        fetchRecipes(recyclerView, "egg")
     }
 
-    private fun fetchRecipes(recyclerView: RecyclerView) {
-        RetrofitClient.instance.searchMeals("")
+    private fun fetchRecipes(recyclerView: RecyclerView, ingredient: String) {
+        RetrofitClient.instance.filterMealsByIngredient(ingredient)
             .enqueue(object : Callback<MealResponse> {
-                override fun onResponse(call: Call<MealResponse>, response: Response<MealResponse>) {
+                override fun onResponse(
+                    call: Call<MealResponse>,
+                    response: Response<MealResponse>
+                ) {
                     val recipes = response.body()?.meals ?: emptyList()
                     if (recipes.isNotEmpty()) {
                         recyclerView.adapter = RecipeRecommendationsAdapter(recipes)
-                        Log.d("RecipeRecommendations", "Loaded ${recipes.size} recipes")
+                        Log.d(
+                            "RecipeRecommendations",
+                            "Loaded ${recipes.size} recipes for $ingredient"
+                        )
                     } else {
-                        Log.d("RecipeRecommendations", "No recipes found")
+                        Log.d("RecipeRecommendations", "No recipes found for $ingredient")
                     }
                 }
 
                 override fun onFailure(call: Call<MealResponse>, t: Throwable) {
-                    Log.e("RecipeRecommendations", "Error fetching recipes: ${t.localizedMessage}")
+                    Log.e("RecipeRecommendations", "Error: ${t.localizedMessage}")
                 }
             })
     }
