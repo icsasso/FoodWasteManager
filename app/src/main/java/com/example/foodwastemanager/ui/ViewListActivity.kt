@@ -20,6 +20,8 @@ class ViewListActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var recipeButton: Button
     private lateinit var adapter: SelectableFoodAdapter
+    
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +51,15 @@ class ViewListActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+        val returnHomeButton = findViewById<Button>(R.id.returnHomeButton)
+        returnHomeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            // This clears the back stack so MainActivity is on top
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
+
     }
 
     private fun fetchFoodFromDatabase() {

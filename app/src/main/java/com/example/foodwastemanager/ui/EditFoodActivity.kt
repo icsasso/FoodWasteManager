@@ -1,5 +1,6 @@
 package com.example.foodwastemanager.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -55,7 +56,18 @@ class EditFoodActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show()
             }
         }
+
+        val returnHomeButton = findViewById<Button>(R.id.returnHomeButton)
+        returnHomeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            // This clears the back stack so MainActivity is on top
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
     }
+
+
 
     private fun saveFoodToDatabase(name: String, expiration: String, nameInput: EditText, dateInput: EditText) {
         val apiFoodItem = ApiFoodItem(name, expiration)
