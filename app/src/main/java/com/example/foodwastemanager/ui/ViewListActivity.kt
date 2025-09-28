@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodwastemanager.R
+import com.example.foodwastemanager.network.BackendClient
+import android.widget.Toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ViewListActivity : AppCompatActivity() {
 
@@ -26,13 +31,9 @@ class ViewListActivity : AppCompatActivity() {
         recipeButton.alpha = 0.5f
 
         // TODO: Replace with your saved food list (maybe from database or shared prefs)
-        val items = listOf(
-            FoodItem("Milk", "09/28/2025"),
-            FoodItem("Eggs", "10/01/2025"),
-            FoodItem("Cheese", "09/29/2025")
-        )
+        fetchFoodFromDatabase()
 
-        adapter = SelectableFoodAdapter(items) { hasSelection ->
+        adapter = SelectableFoodAdapter(emptyList()) { hasSelection ->
             recipeButton.isEnabled = hasSelection
             recipeButton.alpha = if (hasSelection) 1f else 0.5f
         }
@@ -46,5 +47,33 @@ class ViewListActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+    }
+
+    private fun fetchFoodFromDatabase() {
+        BackendClient.instance.getItems().enqueue(object : Callback<List<Map<String, Any>>> {
+            override fun onResponse(
+                call: Call<List<Map<String, Any>>>,
+                response: Response<List<Map<String, Any>>>
+            ) {
+                if (response.isSuccessful) {
+                    val items = response.body() ?: emptyList()
+
+                    // Convert backend response into FoodItem list
+                    val foodItems = items.map {
+                        val name = it["name"] as? String ?: "Unknown"
+                        val expiration = it["expiration_date"] as? String ?: "Unknown"
+                        FoodItem(name, expiration)
+                    }
+
+                    adapter.updateList(foodItems) // 🔥 you’ll need this method in SelectableFoodAdapter
+                } else {
+                    Toast.makeText(this@ViewListActivity, "Failed to fetch items", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Map<String, Any>>>, t: Throwable) {
+                Toast.makeText(this@ViewListActivity, "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
