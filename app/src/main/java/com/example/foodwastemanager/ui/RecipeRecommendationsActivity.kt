@@ -1,7 +1,9 @@
 package com.example.foodwastemanager.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +29,14 @@ class RecipeRecommendationsActivity : AppCompatActivity() {
         fetchRecipes(recyclerView, "milk")
         fetchRecipes(recyclerView, "cheese")
         fetchRecipes(recyclerView, "egg")
+
+        val returnHomeButton = findViewById<ImageButton>(R.id.returnHomeButton)
+        returnHomeButton.setOnClickListener {
+            val intent = Intent(this, ViewListActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun fetchRecipes(recyclerView: RecyclerView, ingredient: String) {
