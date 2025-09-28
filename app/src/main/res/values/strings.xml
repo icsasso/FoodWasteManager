@@ -1,3 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FoodWasteManager</string>
+    <!-- App Name -->
+    <string name="app_name">Food Waste Manager</string>
+
+    <!-- Main Screen -->
+    <string name="main_title">Food Waste Manager</string>
+    <string name="main_subtitle">Combat food waste by tracking when your food will expire!</string>
+    <string name="button_add_edit">Add/Edit Food List</string>
+    <string name="button_view_list">View Food List</string>
+    <string name="veggies_image">Vegetable</string>
+
+    <!-- Food List Screen -->
+    <string name="list_title">My Food List</string>
+    <string name="button_view_recipes">View Recipe Suggestions</string>
+    <string name="expiration_label">expiration date</string>
+
+    <!-- Food Item -->
+    <string name="food_item_placeholder">food item</string>
+    <string name="trashcan">Trash Can</string>
+    <string name="warning">Warning Sign</string>
 </resources>

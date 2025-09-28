@@ -2,7 +2,6 @@ package com.example.foodwastemanager.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // View Food List button
-        val viewListButton = findViewById<Button>(R.id.button3)
+        val viewListButton = findViewById<Button>(R.id.viewFoodListButton)
         viewListButton.setOnClickListener {
             val intent = Intent(this, ViewListActivity::class.java)
             startActivity(intent)

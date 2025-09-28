@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Food Waste Manager"
+        android:text="@string/app_name"
         android:textColor="#ab1d79"
 
         android:textSize="30sp"
@@ -26,14 +26,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="Combat food waste by tracking when your food will expire!"
+        android:text="@string/main_subtitle"
         android:textColor="#138d77"
         android:textSize="25sp"
 
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/viewFoodListButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -43,6 +43,7 @@
         android:layout_height="270dp"
         android:layout_marginStart="-20dp"
         android:layout_marginTop="-8dp"
+        android:contentDescription="@string/veggies_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -55,7 +56,7 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="#ffe194"
         android:fontFamily="sans-serif-medium"
-        android:text="Add/Edit Food List Here"
+        android:text="@string/button_add_edit"
         android:textColor="#ba5a87"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -64,15 +65,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="190dp"
+        android:id="@+id/viewFoodListButton"
+        android:layout_width="290dp"
         android:layout_height="60dp"
-        android:text="View Food List"
         android:backgroundTint="#ffe194"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/button_view_list"
         android:textColor="#ba5a87"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
         app:layout_constraintEnd_toEndOf="@+id/addFoodButton"
         app:layout_constraintStart_toStartOf="@+id/addFoodButton"
         app:layout_constraintTop_toBottomOf="@+id/addFoodButton" />
