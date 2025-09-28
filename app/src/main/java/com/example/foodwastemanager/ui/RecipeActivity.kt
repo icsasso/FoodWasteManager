@@ -92,7 +92,7 @@ class RecipeActivity : AppCompatActivity() {
             )
         )
 
-        val adapter = RecipeAdapter(recipes)
+        val adapter = RecipeRecommendationsAdapter(recipes)
         recyclerView.adapter = adapter
     }
 }
