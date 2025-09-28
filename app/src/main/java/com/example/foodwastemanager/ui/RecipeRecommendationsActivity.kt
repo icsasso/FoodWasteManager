@@ -16,7 +16,10 @@ import retrofit2.Response
 
 class RecipeRecommendationsActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
 
         // Link to recipe_recommendations.xml
@@ -25,10 +28,10 @@ class RecipeRecommendationsActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recipeRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Load recipes into RecyclerView
-        fetchRecipes(recyclerView, "milk")
-        fetchRecipes(recyclerView, "cheese")
-        fetchRecipes(recyclerView, "egg")
+        val ingredient = intent.getStringExtra("ingredient") ?: return
+        fetchRecipes(recyclerView, ingredient)
+
+
 
         val returnHomeButton = findViewById<ImageButton>(R.id.returnHomeButton)
         returnHomeButton.setOnClickListener {
