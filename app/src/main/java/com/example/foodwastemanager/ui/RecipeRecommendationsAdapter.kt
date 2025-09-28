@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodwastemanager.R
 import com.example.foodwastemanager.model.Meal
+import android.content.Intent
 
 class RecipeRecommendationsAdapter(private val recipes: List<Meal>) :
     RecyclerView.Adapter<RecipeRecommendationsAdapter.ViewHolder>() {
@@ -41,7 +42,11 @@ class RecipeRecommendationsAdapter(private val recipes: List<Meal>) :
 
         // Button click event
         holder.viewRecipeButton.setOnClickListener {
-            // TODO: Add navigation to a detailed recipe activity
+            val context = holder.itemView.context
+            val intent = Intent(context, RecipeDetailActivity::class.java)
+            intent.putExtra("MEAL_ID", recipe.idMeal)
+            context.startActivity(intent)
+
         }
     }
 

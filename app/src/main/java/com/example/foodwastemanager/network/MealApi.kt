@@ -15,4 +15,8 @@ interface MealApi {
 
     @GET(value="filter.php")
     fun filterMealsByIngredient(@Query("i") ingredient: String): Call<MealResponse>
+
+    @GET("lookup.php")
+    fun getMealById(@Query("i") id: String): Call<MealResponse>
+
 }

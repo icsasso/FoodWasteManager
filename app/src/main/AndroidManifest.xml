@@ -26,6 +26,7 @@
         <activity android:name=".ui.EditFoodActivity" />
         <activity android:name=".ui.ViewListActivity" />
         <activity android:name=".ui.RecipeRecommendationsActivity" />
+        <activity android:name=".ui.RecipeDetailActivity"/>
 
     </application>
 
