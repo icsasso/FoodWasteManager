@@ -12,4 +12,7 @@ interface MealApi {
 
     @GET("random.php")
     fun getRandomMeal(): Call <MealResponse>
+
+    @GET(value="filter.php")
+    fun filterMealsByIngredient(@Query("i") ingredient: String): Call<MealResponse>
 }
