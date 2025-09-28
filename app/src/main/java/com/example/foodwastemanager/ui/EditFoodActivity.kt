@@ -84,9 +84,6 @@ class EditFoodActivity : AppCompatActivity() {
                     val insertResponse = response.body()
                     Toast.makeText(this@EditFoodActivity, "Food saved successfully!", Toast.LENGTH_SHORT).show()
 
-                    // Add to local adapter for immediate UI update
-                    adapter.addItem(com.example.foodwastemanager.ui.FoodItem(name, expiration))
-
                     // Clear inputs
                     nameInput.text.clear()
                     dateInput.text.clear()
