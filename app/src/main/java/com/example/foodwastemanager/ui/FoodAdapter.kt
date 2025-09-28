@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodwastemanager.R
 
 class FoodAdapter(
-    private val items: MutableList<FoodItem>
+    private val items: MutableList<FoodItem>,
+    private val onDeleteClicked: (FoodItem) -> Unit
 ) : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
     inner class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -31,8 +32,7 @@ class FoodAdapter(
 
         // Delete functionality
         holder.deleteButton.setOnClickListener {
-            items.removeAt(position)
-            notifyItemRemoved(position)
+            onDeleteClicked(food)
         }
     }
 
@@ -42,5 +42,20 @@ class FoodAdapter(
     fun addItem(food: FoodItem) {
         items.add(food)
         notifyItemInserted(items.size - 1)
+    }
+    // Replace the current list with new data (for GET)
+    fun setItems(newItems: List<FoodItem>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
+    }
+
+    // Remove item by name (after DELETE succeeds on backend)
+    fun removeItem(name: String) {
+        val index = items.indexOfFirst { it.name == name }
+        if (index != -1) {
+            items.removeAt(index)
+            notifyItemRemoved(index)
+        }
     }
 }
