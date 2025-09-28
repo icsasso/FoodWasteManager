@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -57,7 +58,7 @@ class EditFoodActivity : AppCompatActivity() {
             }
         }
 
-        val returnHomeButton = findViewById<Button>(R.id.returnHomeButton)
+        val returnHomeButton = findViewById<ImageButton>(R.id.returnHomeButton)
         returnHomeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             // This clears the back stack so MainActivity is on top
@@ -85,7 +86,7 @@ class EditFoodActivity : AppCompatActivity() {
                     Toast.makeText(this@EditFoodActivity, "Food saved successfully!", Toast.LENGTH_SHORT).show()
 
                     // Add to local adapter for immediate UI update
-                    adapter.addItem(com.example.foodwastemanager.ui.FoodItem(name, expiration))
+                    adapter.addItem(FoodItem(name, expiration))
 
                     // Clear inputs
                     nameInput.text.clear()
