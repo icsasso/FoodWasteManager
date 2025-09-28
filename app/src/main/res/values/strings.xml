@@ -10,13 +10,21 @@
     <string name="button_view_list">View Food List</string>
     <string name="veggies_image">Vegetable</string>
 
-    <!-- Food List Screen -->
+    <!-- View Food List Screen -->
     <string name="list_title">My Food List</string>
     <string name="button_view_recipes">View Recipe Suggestions</string>
     <string name="expiration_label">expiration date</string>
+    <string name="arrow">Back Arrow</string>
 
     <!-- Food Item -->
     <string name="food_item_placeholder">food item</string>
     <string name="trashcan">Trash Can</string>
     <string name="warning">Warning Sign</string>
+
+    <!-- Edit Food List Screen -->
+    <string name="edit_list_title">Edit Food List</string>
+    <string name="enter_food">Enter food name</string>
+    <string name="enter_date">Enter expiration date (MM/DD/YYYY)</string>
+    <string name="add_food">Add Food</string>
+
 </resources>

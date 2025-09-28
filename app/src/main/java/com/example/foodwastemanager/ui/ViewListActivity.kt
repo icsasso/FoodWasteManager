@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -51,7 +52,7 @@ class ViewListActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        val returnHomeButton = findViewById<Button>(R.id.returnHomeButton)
+        val returnHomeButton = findViewById<ImageButton>(R.id.returnHomeButton)
         returnHomeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             // This clears the back stack so MainActivity is on top
